@@ -1,7 +1,6 @@
 const AppComponent = {
   template: `
-    <div>HEADER</div>
-    <div ui-view></div>
+    <div class="App" ui-view></div>
   `
 };
 

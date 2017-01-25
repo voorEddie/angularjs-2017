@@ -1,5 +1,6 @@
 const path = require('path');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
+const ExtractTextPlugin = require("extract-text-webpack-plugin");
 
 module.exports = {
   entry: "./src/index.js",
@@ -9,6 +10,13 @@ module.exports = {
   },
   module: {
     rules: [
+      {
+        test: /\.css$/,
+        loader: ExtractTextPlugin.extract({
+          fallbackLoader: "style-loader",
+          loader: "css-loader"
+        })
+      },
       {
         test: /\.js?$/,
         loader: 'babel-loader',
@@ -25,6 +33,7 @@ module.exports = {
   },
   devtool: "source-map",
   plugins: [
-    new CopyWebpackPlugin([{ from: './public' }])
+    new CopyWebpackPlugin([{ from: './public' }]),
+    new ExtractTextPlugin("style.css")
   ]
 }
