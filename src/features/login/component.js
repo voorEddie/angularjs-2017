@@ -8,6 +8,7 @@ const LoginComponent = {
     Password: <input type="password" ng-model="$ctrl.password" />
     <button ng-click="$ctrl.login($ctrl.username, $ctrl.password)">Login</button>
     <button ng-click="$ctrl.logout()">Logout</button>
+    <span>{{$ctrl.errorMessage}}</span>
   `
 };
 

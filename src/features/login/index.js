@@ -8,13 +8,14 @@ const login = angular
   ])
   .component('appLogin', LoginComponent)
   .config([
-    '$stateProvider',
-    ($stateProvider) => {
+    '$stateProvider', '$urlRouterProvider',
+    ($stateProvider, $urlRouterProvider) => {
       $stateProvider
         .state('login', {
           url: '/login',
           component: 'appLogin'
         })
+      $urlRouterProvider.otherwise('/base');
     }
   ])
   .run([
@@ -26,7 +27,7 @@ const login = angular
           return $state.target('login');
         }
       };
-      $transitions.onBefore({to: 'base'}, redirectToLogin, {priority: 10});
+      $transitions.onBefore({to: 'base'}, redirectToLogin);
     }
   ])
   .name;

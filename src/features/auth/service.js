@@ -1,7 +1,7 @@
-export default class AuthService {
-  constructor($timeout, $q) {
-    this.$timeout = $timeout;
+class AuthService {
+  constructor($q, $http) {
     this.$q = $q;
+    this.$http = $http;
     this.load();
   }
 
@@ -9,7 +9,7 @@ export default class AuthService {
     try {
       return angular.extend(this, angular.fromJson(sessionStorage.getItem('appDataFromSession')));
     } catch (error) {
-      console.log(error);
+      console.error(error);
     }
 
     return this;
@@ -24,19 +24,33 @@ export default class AuthService {
   }
 
   authenticate(username, password) {
-    let { $timeout, $q, AppConfig } = this;
+    const { $q, $http } = this;
 
-    // checks if the username is one of the known usernames, and the password is 'password'
     const checkCredentials = () => $q((resolve, reject) => {
-      var validUsername = true;
-      var validPassword = password === 'password';
-
-      return (validUsername && validPassword) ? resolve(username) : reject("Invalid username or password");
+      $http({
+        method: 'POST',
+        url: '/CogServer/BasicServlet',
+        data: 'login=' + encodeURIComponent(JSON.stringify({name: username, password: password})),
+        params: {reqType: 'login'},
+        headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+      })
+      .then(({data: {status, resData}}) => {
+        console.info(status)
+        console.info(resData)
+        if (status === 0) {
+          resolve(data);
+        } else {
+          reject(resData);
+        }
+      })
+      .catch(({status, statusText}) => {
+        reject('Error: ' + status + ' ' + statusText);
+      });
     });
 
-    return $timeout(checkCredentials, 800)
-      .then((authenticatedUser) => {
-        this.authenticatedUser = authenticatedUser;
+    return checkCredentials()
+      .then((data) => {
+        this.authenticatedUser = data;
         this.save();
       });
   }
@@ -46,3 +60,7 @@ export default class AuthService {
     this.save();
   }
 }
+
+AuthService.$inject = ['$q', '$http'];
+
+export default AuthService;

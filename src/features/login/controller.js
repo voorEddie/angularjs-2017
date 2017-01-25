@@ -1,16 +1,16 @@
 class LoginController {
-  constructor(AuthService) {
+  constructor(AuthService, $state) {
     this.AuthService = AuthService;
-  }
-
-  $onInit() {
-  }
-
-  $onChanges(changes) {
+    this.$state = $state;
   }
 
   login(username, password) {
-    this.AuthService.authenticate(username, password);
+    const redirectToBase = () => this.$state.go('base');
+    const showError = (errorMessage) => this.errorMessage = errorMessage;
+
+    this.AuthService.authenticate(username, password)
+      .then(redirectToBase)
+      .catch(showError)
   }
 
   logout() {
@@ -18,6 +18,6 @@ class LoginController {
   }
 }
 
-LoginController.$inject = ['AuthService'];
+LoginController.$inject = ['AuthService', '$state'];
 
 export default LoginController;
