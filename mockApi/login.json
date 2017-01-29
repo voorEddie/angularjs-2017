@@ -1,0 +1,25 @@
+{
+  "status": 0,
+  "resData": "Login successfully!",
+  "data": {
+    "id": "1",
+    "userName": "Eddie",
+    "ipType": "ipv6",
+    "menuConfig": [
+      { "name": "DCM", "value": [
+        { "name": "Dashboard", "value": [
+          { "name": "eNB-1", "value": [] },
+          { "name": "eNB-2", "value": [] }
+          ] },
+        { "name": "Provisioning", "value": [
+          { "name": "Node List", "value": [] },
+          { "name": "Node Operation", "value": [] }
+          ] },
+        { "name": "Configuration", "value": [
+          { "name": "Mediation", "value": [] },
+          { "name": "Injection", "value": [] }
+          ] }
+        ] }
+    ]
+  }
+}
