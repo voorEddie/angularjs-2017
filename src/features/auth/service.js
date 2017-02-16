@@ -6,9 +6,12 @@ class AuthService {
   }
 
   authenticate(username, password) {
-    return this.ApiService.api('login', null, {name: username, password: password})
+    let params = { reqType: 'login' };
+    let postData = 'login=' + encodeURIComponent(JSON.stringify({name: username, password: password}));
+
+    return this.ApiService.api(params, postData)
       .then((res) => {
-        this.userData = res.data;
+        this.userData = res.result;
         sessionStorage.setItem('appDataFromSession', angular.toJson(angular.extend({}, this.userData)));
       });
   }
@@ -24,6 +27,7 @@ class AuthService {
 
   _loadAppDataFromSession() {
     let appDataFromSession = angular.fromJson(sessionStorage.getItem('appDataFromSession'));
+    
     if (appDataFromSession) {
       this.userData = angular.extend({}, appDataFromSession);
     }

@@ -5,14 +5,16 @@ class ApiService {
     this.debug = true;
   }
 
-  api(reqType, params, postData) {
+  api(params, postData) {
     const { $q, $http } = this;
 
     return $q((resolve, reject) => {
       $http({
         method: this.debug ? 'GET' : 'POST',
-        url: this.debug ? reqType + '.json' : '/CogServer/BasicServlet',
-        headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+        url: this.debug ? params.reqType + '.json' : '/CogServer/BasicServlet',
+        headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+        params: params,
+        data: postData
       })
       .then((res) => {
         if (res.data.status === 0) {

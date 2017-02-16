@@ -5,7 +5,8 @@ class LoginController {
   }
 
   login(username, password) {
-    const redirectToBase = () => this.$state.go('base');
+    const redirectToBase = () => {
+      this.$state.go('base');}
     const showError = (errorMessage) => this.errorMessage = errorMessage;
 
     this.AuthService.authenticate(username, password)
