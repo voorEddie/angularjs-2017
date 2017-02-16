@@ -1,42 +1,36 @@
 class AuthService {
-  constructor($q, $http, ApiService) {
-    this.$q = $q;
-    this.$http = $http;
+  constructor(ApiService) {
     this.ApiService = ApiService;
-    this.authenticatedUser = {};
-    this.load();
-  }
-
-  load() {
-    try {
-      return angular.extend(this.authenticatedUser, angular.fromJson(sessionStorage.getItem('appDataFromSession')));
-    } catch (error) {
-      console.error(error);
-    }
-  }
-
-  save() {
-    sessionStorage.setItem('appDataFromSession', angular.toJson(angular.extend({}, this.authenticatedUser)));
-  }
-
-  isAuthenticated() {
-    return !!this.authenticatedUser;
+    this.userData = null;
+    this._loadAppDataFromSession();
   }
 
   authenticate(username, password) {
     return this.ApiService.api('login', null, {name: username, password: password})
       .then((res) => {
-        this.authenticatedUser = res.data;
-        this.save();
-      })
+        this.userData = res.data;
+        sessionStorage.setItem('appDataFromSession', angular.toJson(angular.extend({}, this.userData)));
+      });
   }
 
-  logout() {
-    this.authenticatedUser = undefined;
-    this.save();
+  clearAuth() {
+    this.userData = null;
+    sessionStorage.removeItem('appDataFromSession');
   }
+
+  isAuthenticated() {
+    return !!this.userData;
+  }
+
+  _loadAppDataFromSession() {
+    let appDataFromSession = angular.fromJson(sessionStorage.getItem('appDataFromSession'));
+    if (appDataFromSession) {
+      this.userData = angular.extend({}, appDataFromSession);
+    }
+  }
+
 }
 
-AuthService.$inject = ['$q', '$http', 'ApiService'];
+AuthService.$inject = ['ApiService'];
 
 export default AuthService;

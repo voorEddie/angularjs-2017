@@ -18,18 +18,6 @@ const login = angular
       $urlRouterProvider.otherwise('/base');
     }
   ])
-  .run([
-    '$transitions', 'AuthService',
-    ($transitions, AuthService) => {
-      let redirectToLogin = (transition) => {
-        let $state = transition.router.stateService;
-        if (!AuthService.isAuthenticated()) {
-          return $state.target('login');
-        }
-      };
-      $transitions.onBefore({to: 'base'}, redirectToLogin);
-    }
-  ])
   .name;
 
 export default login;

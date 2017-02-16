@@ -14,7 +14,7 @@ class LoginController {
   }
 
   logout() {
-    this.AuthService.logout();
+    this.AuthService.clearAuth();
   }
 }
 
