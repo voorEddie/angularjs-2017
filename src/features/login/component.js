@@ -6,8 +6,8 @@ const LoginComponent = {
     <div>Login</div>
     Username: <input type="txt" ng-model="$ctrl.username" />
     Password: <input type="password" ng-model="$ctrl.password" />
-    <button ng-click="$ctrl.login($ctrl.username, $ctrl.password)">Login</button>
-    <button ng-click="$ctrl.logout()">Logout</button>
+    <md-button class="md-primary md-raised" ng-click="$ctrl.login($ctrl.username, $ctrl.password)">Login</md-button>
+    <md-button class="md-primary ng-click="$ctrl.logout()">Logout</md-button>
     <span>{{$ctrl.errorMessage}}</span>
   `
 };
