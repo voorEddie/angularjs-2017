@@ -27,7 +27,7 @@ class AuthService {
 
   _loadAppDataFromSession() {
     let appDataFromSession = angular.fromJson(sessionStorage.getItem('appDataFromSession'));
-    
+
     if (appDataFromSession) {
       this.userData = angular.extend({}, appDataFromSession);
     }
