@@ -7,16 +7,14 @@ const base = angular
     uiRouter
   ])
   .component('appBase', BaseComponent)
-  .config([
-    '$stateProvider',
-    ($stateProvider) => {
-      $stateProvider
-        .state('base', {
-          url: '/base',
-          component: 'appBase'
-        })
-    }
-  ])
+  .config(($stateProvider) => {
+    'ngInject';
+    $stateProvider
+      .state('base', {
+        url: '/base',
+        component: 'appBase'
+      })
+  })
   .name;
 
 export default base;

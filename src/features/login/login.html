@@ -1,0 +1,9 @@
+<div class="login">
+  <app-login-form
+    is-authenticated="$ctrl.isAuthenticated"
+    error-message="$ctrl.errorMessage"
+    username="$ctrl.username"
+    on-login="$ctrl.login($event)"
+    on-logout="$ctrl.logout()"
+    on-input-change="$ctrl.inputChange()"></app-login-form>
+</div>

@@ -1,6 +1,6 @@
 const AppComponent = {
   template: `
-    <div class="App" ui-view></div>
+    <div layout="row" layout-align="center start" class="app" ui-view></div>
   `
 };
 

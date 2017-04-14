@@ -1,24 +1,27 @@
 class AuthService {
   constructor(ApiService) {
+    'ngInject';
     this.ApiService = ApiService;
     this.userData = null;
     this._loadAppDataFromSession();
   }
 
   authenticate(username, password) {
-    let params = { reqType: 'login' };
-    let postData = 'login=' + encodeURIComponent(JSON.stringify({name: username, password: password}));
 
-    return this.ApiService.api(params, postData)
+    return this.ApiService.api('POST', 'login', {username, password})
       .then((res) => {
-        this.userData = res.result;
-        sessionStorage.setItem('appDataFromSession', angular.toJson(angular.extend({}, this.userData)));
+        // TODO: should replace dummy sessionId when Server can reposonse a real sessionId
+        this.userData = {
+          username, password,
+          sessionId: 'someDummySessionId'
+        };
+        sessionStorage.setItem('hmtSessionData', JSON.stringify(Object.assign({}, this.userData)));
       });
   }
 
   clearAuth() {
     this.userData = null;
-    sessionStorage.removeItem('appDataFromSession');
+    sessionStorage.removeItem('hmtSessionData');
   }
 
   isAuthenticated() {
@@ -26,15 +29,13 @@ class AuthService {
   }
 
   _loadAppDataFromSession() {
-    let appDataFromSession = angular.fromJson(sessionStorage.getItem('appDataFromSession'));
+    let appDataFromSession = JSON.parse(sessionStorage.getItem('hmtSessionData'));
 
     if (appDataFromSession) {
-      this.userData = angular.extend({}, appDataFromSession);
+      this.userData = Object.assign({}, appDataFromSession);
     }
   }
 
 }
-
-AuthService.$inject = ['ApiService'];
 
 export default AuthService;

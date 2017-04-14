@@ -1,10 +1,4 @@
 {
-  "status": 0,
-  "resData": "Login successfully!",
-  "result": {
-    "id": "1",
-    "userId": "Eddie",
-    "sessionId": "11ad72d7fe7c8ff344fa",
-    "menuConfig": "SOME MENU CONFIG"
-  }
+  "status":"Ok",
+  "sessionId": "11ad72d7fe7c8ff344fa"
 }
