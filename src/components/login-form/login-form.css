@@ -1,0 +1,10 @@
+.login-form-title {
+  line-height: 1;
+  margin: 0 0 30px 0;
+  color: #767676;
+}
+
+.login-form-username,
+.login-form-password {
+  margin: 12px 0;
+}

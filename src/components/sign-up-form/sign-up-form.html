@@ -1,0 +1,35 @@
+
+  <h1 class="md-display-1 sign-up-form-title">Sign up</h1>
+  <form name="$ctrl.signUpForm" ng-submit="$ctrl.onSubmit($ctrl.username, $ctrl.password, $ctrl.confirmPassword)">
+    <input type="text" style="display:none">
+    <input type="password" style="display:none">
+    <div layout="column">
+      <md-input-container class="sign-up-form-username">
+        <label>Username</label>
+        <input ng-change="$ctrl.inputChange()" required name="username" ng-model="$ctrl.username" />
+        <div ng-messages="$ctrl.signUpForm.username.$error">
+          <div ng-message="required">Username is required.</div>
+        </div>
+      </md-input-container>
+      <md-input-container class="sign-up-form-password">
+        <label>Password</label>
+        <input ng-change="$ctrl.inputChange()" type="password" required name="password" ng-model="$ctrl.password" />
+        <div ng-messages="$ctrl.signUpForm.password.$error">
+          <div ng-message="required">Password is required.</div>
+        </div>
+      </md-input-container>
+      <md-input-container class="sign-up-form-confirm-password">
+        <label>Confirm password</label>
+        <input ng-change="$ctrl.inputChange()" type="password" required name="confirmPassword" ng-model="$ctrl.confirmPassword" />
+        <div ng-messages="$ctrl.signUpForm.confirmPassword.$error">
+          <div ng-message="required">Confirm password is required.</div>
+          <div ng-message="notMatch">Password not match.</div>
+        </div>
+      </md-input-container>
+    </div>
+    <div layout="column" layout-align="center center">
+      <md-button type="submit" class="md-primary md-raised">Sign up</md-button><div>Already have an account?<md-button ui-sref="login" class="md-primary">Login</md-button></div>
+    </div>
+  </form>
+
+  <span md-colors="{color: 'red'}" class="md-caption">{{$ctrl.errorMessage}}</span>

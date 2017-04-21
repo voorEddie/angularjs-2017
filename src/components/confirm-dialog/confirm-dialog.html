@@ -1,0 +1,20 @@
+<div class="confirm-dialog-inner">
+  <md-toolbar class="md-primary md-hue-2">
+    <div class="md-toolbar-tools">
+      <h2>{{::$ctrl.confirmTitle}}</h2>
+    </div>
+  </md-toolbar>
+
+  <md-dialog-content>
+    <div layout="row" class="md-dialog-content">
+      <md-icon class="md-warn md-hue-1" md-svg-icon="action:announcement" style="width: 35px; height: 35px; margin-right: 20px;"></md-icon>
+      <p>{{::$ctrl.confirmText}}</p>
+      <span flex></span>
+    </div>
+  </md-dialog-content>
+
+  <md-dialog-actions layout="row">
+    <md-button class="md-accent md-hue-3" ng-click="$ctrl.cancel()">Cancel</md-button>
+    <md-button class="md-primary" ng-click="$ctrl.confirm()">Confirm</md-button>
+  </md-dialog-actions>
+</div>

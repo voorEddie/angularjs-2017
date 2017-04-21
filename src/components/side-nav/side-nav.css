@@ -1,0 +1,17 @@
+app-side-nav,
+.side-nav-inner {
+  height: 100%;
+}
+
+.side-nav-group {
+  margin: 0 0 0 15px;
+}
+
+.side-nav-item {
+  margin-left: 30px;
+  color: #444;
+}
+
+.side-nav-active div.md-button {
+  background-color: rgba(0, 130, 200, 0.1);
+}

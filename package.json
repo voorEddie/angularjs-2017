@@ -35,8 +35,6 @@
     "angular-messages": "1.5.8",
     "angular-ui-router": "^1.0.0-rc.1",
     "babel-polyfill": "^6.23.0",
-    "install": "^0.8.8",
-    "normalize.css": "^5.0.0",
-    "npm": "^4.5.0"
+    "normalize.css": "^5.0.0"
   }
 }

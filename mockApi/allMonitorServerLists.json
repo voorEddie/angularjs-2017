@@ -1,0 +1,15 @@
+{
+  "109.105.112.154":{
+    "nodeip":"109.105.112.154",
+    "nodedescription":"test",
+    "nodeport":"9000",
+    "nodeusername":"root",
+    "nodepassword":"magician",
+    "analysis":60,
+    "smart":60,
+    "dslr":60,
+    "servers":[
+
+    ]
+  }
+}

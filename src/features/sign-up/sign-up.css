@@ -1,0 +1,9 @@
+app-sign-up {
+  width: 100%;
+  max-width: 800px;
+  margin: 130px 20px 0 20px;
+}
+
+.sign-up-inner {
+  padding: 35px;
+}

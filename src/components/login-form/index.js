@@ -1,5 +1,5 @@
-import angular from 'angular';
 import LoginFormComponent from './login-form.component';
+import './login-form.css';
 
 const LoginForm = angular
   .module('login.form', [])

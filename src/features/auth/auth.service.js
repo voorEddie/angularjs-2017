@@ -1,7 +1,8 @@
 class AuthService {
-  constructor(ApiService) {
+  constructor(ApiService, $state) {
     'ngInject';
     this.ApiService = ApiService;
+    this.$state = $state;
     this.userData = null;
     this._loadAppDataFromSession();
   }
@@ -22,6 +23,7 @@ class AuthService {
   clearAuth() {
     this.userData = null;
     sessionStorage.removeItem('hmtSessionData');
+    this.$state.go('login');
   }
 
   isAuthenticated() {

@@ -1,0 +1,46 @@
+<md-sidenav
+  class="md-sidenav-left side-nav-inner"
+  md-is-locked-open="$mdMedia('gt-sm')"
+  md-whiteframe="4">
+  <header class="app-header md-display-1">HMT</header>
+  <md-list class="side-nav">
+    <md-subheader><p class="side-nav-group">Summary</p></md-subheader>
+    <md-list-item
+      ui-sref="base.dashboard"
+      ui-sref-active="side-nav-active">
+      <span class="side-nav-item">Dashboard</span>
+    </md-list-item>
+    <md-list-item
+      ui-sref="base.alarm"
+      ui-sref-active="side-nav-active">
+      <span class="side-nav-item">Alarm</span>
+    </md-list-item>
+    <md-subheader><p class="side-nav-group">Statistics</p></md-subheader>
+    <md-list-item
+      ui-sref="base.statistics.diskInformation"
+      ui-sref-active="side-nav-active">
+      <span class="side-nav-item">Disk information</span>
+    </md-list-item>
+    <md-list-item
+      ui-sref="base.statistics.smart"
+      ui-sref-active="side-nav-active">
+      <span class="side-nav-item">SMART</span>
+    </md-list-item>
+    <md-list-item
+      ui-sref="base.statistics.dslr"
+      ui-sref-active="side-nav-active">
+      <span class="side-nav-item">DSLR</span>
+    </md-list-item>
+    <md-subheader><p class="side-nav-group">Configuration</p></md-subheader>
+    <md-list-item
+      ui-sref="base.monitorNode"
+      ui-sref-active="side-nav-active">
+      <span class="side-nav-item">Monitor node</span>
+    </md-list-item>
+    <md-list-item
+      ui-sref="base.userSetting"
+      ui-sref-active="side-nav-active">
+      <span class="side-nav-item">User setting</span>
+    </md-list-item>
+  </md-list>
+</md-sidenav>

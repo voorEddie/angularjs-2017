@@ -1,0 +1,11 @@
+<div layout="row" class="app-base-inner">
+  <app-side-nav></app-side-nav>
+  <div flex layout="column">
+    <app-toolbar></app-toolbar>
+    <md-content
+      flex
+      ui-view
+      node-config="$ctrl.nodeConfig"
+      class="base-view-inner"></md-content>
+  </div>
+</div>

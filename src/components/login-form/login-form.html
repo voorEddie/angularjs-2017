@@ -1,15 +1,15 @@
 <div ng-if="!$ctrl.isAuthenticated">
-  <h1 class="login-title">Login</h1>
+  <h1 class="md-display-1 login-form-title">Login</h1>
   <form name="$ctrl.loginForm" ng-submit="$ctrl.onSubmit($ctrl.username, $ctrl.password)">
     <div layout="column">
-      <md-input-container class="login-username">
+      <md-input-container class="login-form-username">
         <label>Username</label>
         <input ng-change="$ctrl.onInputChange()" required name="username" ng-model="$ctrl.username">
         <div ng-messages="$ctrl.loginForm.username.$error">
           <div ng-message="required">Username is required.</div>
         </div>
       </md-input-container>
-      <md-input-container>
+      <md-input-container class="login-form-password">
         <label>Password</label>
         <input ng-change="$ctrl.onInputChange()" type="password" required name="password" ng-model="$ctrl.password">
         <div ng-messages="$ctrl.loginForm.password.$error">
@@ -17,8 +17,8 @@
         </div>
       </md-input-container>
     </div>
-    <div layout="row" layout-align="center center">
-      <md-button type="submit" class="md-primary md-raised">Login</md-button><md-button class="md-primary">Sign up</md-button>
+    <div layout="column" layout-align="center center">
+      <md-button type="submit" class="md-primary md-raised">Login</md-button><div>Don't have an account?<md-button ui-sref="sign-up" class="md-primary">Sign up</md-button></div>
     </div>
   </form>
 
@@ -26,9 +26,9 @@
 </div>
 
 <div ng-if="$ctrl.isAuthenticated">
-  <h1 class="login-title">You are already logged in</h1>
+  <h1 class="md-display-1 login-form-title">You are already logged in</h1>
   <div layout="column">
-    <md-input-container class="login-username">
+    <md-input-container class="login-form-username">
       <label>Username</label>
       <input disabled name="username" ng-model="$ctrl.username">
     </md-input-container>

@@ -1,5 +1,4 @@
-import angular from 'angular';
-import ApiService from './service';
+import ApiService from './api.service';
 
 const api = angular
   .module('api', [])

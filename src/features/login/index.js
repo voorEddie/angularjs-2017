@@ -1,4 +1,3 @@
-import angular from 'angular';
 import uiRouter from 'angular-ui-router';
 import LoginComponent from './login.component';
 import './login.css';
@@ -8,14 +7,15 @@ const login = angular
     uiRouter
   ])
   .component('appLogin', LoginComponent)
-  .config(($stateProvider, $urlRouterProvider) => {
+  .config(($urlRouterProvider, $stateProvider) => {
     'ngInject';
+    $urlRouterProvider
+      .otherwise('/hmt');
     $stateProvider
       .state('login', {
         url: '/login',
         component: 'appLogin'
-      })
-    $urlRouterProvider.otherwise('/base');
+      });
   })
   .name;
 
