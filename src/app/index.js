@@ -24,7 +24,8 @@ const app = angular
     $mdThemingProvider
       .theme('default')
       .primaryPalette('blue')
-      .accentPalette('grey');
+      .accentPalette('grey')
+      .warnPalette('red');
     $mdIconProvider
 			.iconSet('action', './iconsets/action-icons.svg', 24)
 			.iconSet('alert', './iconsets/alert-icons.svg', 24)
@@ -35,7 +36,6 @@ const app = angular
 			.iconSet('editor', './iconsets/editor-icons.svg', 24)
 			.iconSet('file', './iconsets/file-icons.svg', 24)
 			.iconSet('hardware', './iconsets/hardware-icons.svg', 24)
-			.iconSet('icons', './iconsets/icons-icons.svg', 24)
 			.iconSet('image', './iconsets/image-icons.svg', 24)
 			.iconSet('maps', './iconsets/maps-icons.svg', 24)
 			.iconSet('navigation', './iconsets/navigation-icons.svg', 24)

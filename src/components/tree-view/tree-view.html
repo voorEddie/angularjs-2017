@@ -1,0 +1,23 @@
+<md-sidenav
+  md-component-id="groot"
+  class="md-sidenav-right"
+  md-whiteframe="4">
+  <md-list>
+    <md-list-item
+      class="node-list-item md-2-line"
+      ng-repeat-start="(monitorNodeIp, monitorNodeDetail) in $ctrl.nodeConfig">
+      <md-icon class="md-primary md-hue-2" md-svg-icon="hardware:desktop_windows"></md-icon>
+      <div class="md-list-item-text">
+        <h3>{{monitorNodeDetail.nodedescription}}</h3>
+        <p>{{'IP: ' + monitorNodeIp}}</p>
+      </div>
+    </md-list-item>
+    <md-list-item
+      class="server-list-item"
+      ng-repeat="server in monitorNodeDetail.servers"
+      ng-repeat-end>
+      <md-icon class="server-list-item-icon" md-svg-icon="hardware:dock"></md-icon>
+      <p>{{server.description + ' (' + server.ip_address + ')'}}</p>
+    </md-list-item>
+  </md-list>
+</md-sidenav>

@@ -13,7 +13,7 @@ const SignUpComponent = {
       };
       const showError = (errorMessage) => this.errorMessage = errorMessage;
 
-      this.ApiService.api('post', 'signUp', {username, password})
+      this.ApiService.api('POST', 'signUp', {username, password})
         .then(redirectToLogin)
         .catch(showError)
     }

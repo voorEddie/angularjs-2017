@@ -1,5 +1,6 @@
 import uiRouter from 'angular-ui-router';
 import UserSettingComponent from './user-setting.component';
+import './user-setting.css';
 
 const userSetting = angular
   .module('userSetting', [

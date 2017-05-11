@@ -1,0 +1,107 @@
+<form class="monitor-node-dialog-inner" name="$ctrl.nodeDialogForm" ng-submit="$ctrl.submit($ctrl.nodeDialog)">
+
+  <md-toolbar class="md-primary md-hue-2">
+    <div class="md-toolbar-tools">
+      <h2>{{::$ctrl.dialogTitle}}</h2>
+    </div>
+  </md-toolbar>
+
+  <md-dialog-content>
+    <div class="md-dialog-content">
+    <md-input-container class="node-dialog-node-name md-block">
+      <label>Monitor Node name</label>
+      <input required name="name" ng-model="$ctrl.nodeDialog.nodedescription">
+      <div ng-messages="$ctrl.nodeDialogForm.name.$error">
+        <div ng-message="required">Monitor Node name is required.</div>
+      </div>
+    </md-input-container>
+    <div layout="row">
+      <md-input-container class="node-dialog-node-ip md-block" flex>
+        <label>IP Address</label>
+        <input required name="ip" ng-model="$ctrl.nodeDialog.nodeip" ng-pattern="/^((25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$/">
+        <div ng-messages="$ctrl.nodeDialogForm.ip.$error">
+          <div ng-message="required">IP Address is required.</div>
+          <div ng-message="pattern">Invalid IP Address.</div>
+        </div>
+      </md-input-container>
+      <md-input-container class="node-dialog-node-port md-block" flex>
+        <label>Port</label>
+        <input required name="port" ng-model="$ctrl.nodeDialog.nodeport" ng-pattern="/^([0-9]{1,4}|[1-5][0-9]{4}|6[0-4][0-9]{3}|65[0-4][0-9]{2}|655[0-2][0-9]|6553[0-5])$/">
+        <div ng-messages="$ctrl.nodeDialogForm.port.$error">
+          <div ng-message="required">Port is required.</div>
+          <div ng-message="pattern">Invalid Port number</div>
+        </div>
+      </md-input-container>
+      <md-input-container class="node-dialog-node-port md-block" flex>
+        <label>SMART</label>
+        <md-select required ng-model="$ctrl.nodeDialog.smart">
+          <md-option ng-repeat="interval in $ctrl.smartInterval" value="{{interval.value}}">
+            {{interval.text}}
+          </md-option>
+        </md-select>
+      </md-input-container>
+      <md-input-container class="node-dialog-node-port md-block" flex>
+        <label>DSLR</label>
+        <md-select required ng-model="$ctrl.nodeDialog.dslr">
+          <md-option ng-repeat="interval in $ctrl.dslrInterval" value="{{interval.value}}">
+            {{interval.text}}
+          </md-option>
+        </md-select>
+      </md-input-container>
+    </div>
+    <div layout="row">
+      <md-subheader class="md-primary" flex>Servers</md-subheader>
+      <md-button
+        class="md-primary"
+        ng-click="$ctrl.serverAdd()"><md-icon md-svg-icon="content:add_circle"></md-icon>&nbsp;Add Server&nbsp;</md-button>
+    </div>
+    <div class="server-wrapper" layout="row" ng-repeat="server in $ctrl.nodeDialog.servers track by $index">
+      <input type="text" style="display:none">
+      <input type="password" style="display:none">
+      <md-input-container class="md-block" flex>
+        <label>Server name</label>
+        <input required name="servername" ng-model="server.description">
+      </md-input-container>
+      <md-input-container class="md-block" flex>
+        <label>IP Address</label>
+        <input required name="serverip" ng-model="server.ip_address" ng-pattern="/^((25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$/">
+      </md-input-container>
+      <md-input-container class="md-block" flex>
+        <label>Port</label>
+        <input required name="serverport" ng-model="server.port" ng-pattern="/^([0-9]{1,4}|[1-5][0-9]{4}|6[0-4][0-9]{3}|65[0-4][0-9]{2}|655[0-2][0-9]|6553[0-5])$/">
+      </md-input-container>
+      <md-input-container class="md-block" flex>
+        <label>Username</label>
+        <input required name="username" ng-model="server.username">
+      </md-input-container>
+      <md-input-container class="md-block" flex>
+        <label>Password</label>
+        <input required type="password" name="password" ng-model="server.password">
+      </md-input-container>
+      <md-button
+        class="md-icon-button md-warn md-hue-2"
+        ng-click="$ctrl.serverRemove($ctrl.nodeDialog.servers, $index)"><md-icon md-svg-icon="content:remove_circle"></md-icon></md-button>
+    </div>
+    </div>
+  </md-dialog-content>
+
+  <md-dialog-actions layout="row">
+    <div flex ng-messages="$ctrl.apiMessage" class="api-messages">
+      <span ng-message="error" class="md-caption api-message-error">
+        <md-icon class="error-icon" md-svg-icon="action:announcement"></md-icon>
+        {{$ctrl.apiMessage.error}}
+      </span>
+      <span ng-message="success" class="md-caption api-message-success">
+        <md-icon class="success-icon" md-svg-icon="action:announcement"></md-icon>
+        {{$ctrl.apiMessage.success}}
+      </span>
+      <span layout="row" ng-message="progress" class="md-caption api-message-progress">
+        <md-progress-circular class="progress-icon" md-mode="indeterminate" md-diameter="17px"></md-progress-circular>
+        {{$ctrl.apiMessage.progress}}
+      </span>
+    </div>
+    <md-button ng-disabled="$ctrl.apiMessage.progress" class="md-accent md-hue-3" ng-click="$ctrl.cancel()">Cancel</md-button>
+    <md-button ng-disabled="$ctrl.apiMessage.progress" type="submit" class="md-primary">Save</md-button>
+  </md-dialog-actions>
+
+</form>

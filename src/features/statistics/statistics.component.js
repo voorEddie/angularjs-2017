@@ -2,11 +2,24 @@ const StatisticsComponent = {
   bindings: {
     nodeConfig: '<'
   },
-  template: `
-    <div>Statistics module placeholder</div>
-    <div>{{$ctrl.nodeConfig}}</div>
-    <div ui-view>Statistics subview</div>
-  `
+  template: require('./statistics.html'),
+  controller: class StatisticsComponent {
+    constructor($mdSidenav) {
+      'ngInject';
+      this.$mdSidenav = $mdSidenav;
+    }
+
+    $onChanges(changes) {
+      if (changes.nodeConfig && !changes.nodeConfig.isFirstChange()) {
+        this.nodeConfig = Object.assign({}, this.nodeConfig);
+      }
+    }
+
+    toggleTree(id) {
+      this.$mdSidenav(id)
+        .toggle()
+    }
+  }
 };
 
 export default StatisticsComponent;

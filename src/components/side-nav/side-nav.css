@@ -1,5 +1,6 @@
 app-side-nav,
 .side-nav-inner {
+  width: 280px;
   height: 100%;
 }
 

@@ -2,8 +2,8 @@
   layout="row"
   layout-align="start center"
   class="md-accent md-hue-1 md-whiteframe-3dp">
-  <div>Feature Name</div>
-  <md-menu class="app-toolbar-account-menu">
+  <h2 class="md-headline toolbar-feature-name">{{$ctrl.currentFeatureName}}</h2>
+  <md-menu class="toolbar-account-menu">
     <md-button aria-label="Open account menu" class="md-icon-button" ng-click="$ctrl.openMenu($mdMenu, $event)">
       <md-icon md-svg-icon="social:person"></md-icon>
     </md-button>

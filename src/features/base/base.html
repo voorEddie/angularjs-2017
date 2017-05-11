@@ -5,7 +5,11 @@
     <md-content
       flex
       ui-view
+      layout-padding
       node-config="$ctrl.nodeConfig"
-      class="base-view-inner"></md-content>
+      get-node-config="$ctrl.getNodeConfig()"
+      class="base-view-inner">
+      <md-progress-circular class="base-progress-indicator" md-diameter="70"></md-progress-circular>
+    </md-content>
   </div>
 </div>

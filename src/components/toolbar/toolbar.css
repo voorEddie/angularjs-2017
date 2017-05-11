@@ -1,4 +1,10 @@
-.app-toolbar-account-menu {
+.toolbar-account-menu {
   position: absolute;
   right: 80px;
+}
+
+.toolbar-feature-name {
+  margin-left: 40px;
+  margin-right: 40px;
+  text-transform: capitalize;
 }

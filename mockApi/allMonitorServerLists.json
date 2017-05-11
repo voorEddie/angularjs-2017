@@ -1,15 +1,90 @@
 {
-  "109.105.112.154":{
-    "nodeip":"109.105.112.154",
-    "nodedescription":"test",
-    "nodeport":"9000",
-    "nodeusername":"root",
-    "nodepassword":"magician",
-    "analysis":60,
-    "smart":60,
-    "dslr":60,
-    "servers":[
-
+  "109.105.112.23": {
+    "nodeip": "109.105.112.23",
+    "nodedescription": "Monitor Node A",
+    "nodeport": "9000",
+    "nodeusername": "root",
+    "nodepassword": "magician",
+    "analysis": 60,
+    "smart": 60,
+    "dslr": 60,
+    "servers": [
+      {
+        "ip_address": "109.105.112.23",
+        "port": "22",
+        "description": "Server A-1",
+        "servertype": "",
+        "username": "root",
+        "password": "magician"
+      },
+      {
+        "ip_address": "109.105.113.23",
+        "port": "22",
+        "description": "Server A-2",
+        "servertype": "",
+        "username": "root",
+        "password": "magician"
+      }
+    ]
+  },
+  "109.105.112.24": {
+    "nodeip": "109.105.112.24",
+    "nodedescription": "Monitor Node B",
+    "nodeport": "9000",
+    "nodeusername": "root",
+    "nodepassword": "magician",
+    "analysis": 60,
+    "smart": 60,
+    "dslr": 60,
+    "servers": [
+      {
+        "ip_address": "109.105.112.24",
+        "port": "22",
+        "description": "Server B-1",
+        "servertype": "",
+        "username": "root",
+        "password": "magician"
+      }
+    ]
+  },
+  "109.105.112.25": {
+    "nodeip": "109.105.112.25",
+    "nodedescription": "Monitor Node C",
+    "nodeport": "9000",
+    "nodeusername": "root",
+    "nodepassword": "magician",
+    "analysis": 60,
+    "smart": 60,
+    "dslr": 60,
+    "servers": [
+      {
+        "ip_address": "109.105.112.25",
+        "port": "22",
+        "description": "Server C-1",
+        "servertype": "",
+        "username": "root",
+        "password": "magician"
+      }
+    ]
+  },
+  "109.105.112.26": {
+    "nodeip": "109.105.112.26",
+    "nodedescription": "Monitor Node D",
+    "nodeport": "9000",
+    "nodeusername": "root",
+    "nodepassword": "magician",
+    "analysis": 60,
+    "smart": 60,
+    "dslr": 60,
+    "servers": [
+      {
+        "ip_address": "109.105.112.26",
+        "port": "22",
+        "description": "Server D-1",
+        "servertype": "",
+        "username": "root",
+        "password": "magician"
+      }
     ]
   }
 }

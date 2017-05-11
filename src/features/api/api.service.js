@@ -12,7 +12,7 @@ class ApiService {
     return $q((resolve, reject) => {
       $http({
         method: this.debug ? 'GET' : method,
-        url: this.debug ? url + '.json' : url,
+        url: this.debug ? url + '.json' : '../' + url,
         data: data
       })
       .then(({data}) => {

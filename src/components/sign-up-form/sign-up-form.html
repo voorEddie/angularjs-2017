@@ -28,8 +28,8 @@
       </md-input-container>
     </div>
     <div layout="column" layout-align="center center">
-      <md-button type="submit" class="md-primary md-raised">Sign up</md-button><div>Already have an account?<md-button ui-sref="login" class="md-primary">Login</md-button></div>
+      <md-button type="submit" class="md-primary md-raised">Sign up</md-button><div class="md-caption">Already have an account?<md-button ui-sref="login" class="md-primary">Login</md-button></div>
     </div>
   </form>
 
-  <span md-colors="{color: 'red'}" class="md-caption">{{$ctrl.errorMessage}}</span>
+  <span class="md-caption api-message-error">{{$ctrl.errorMessage}}</span>

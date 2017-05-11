@@ -1,0 +1,47 @@
+<div class="user-setting-form">
+  <form name="$ctrl.userSettingForm" ng-submit="$ctrl.onSubmit($ctrl.oldPassword, $ctrl.newPassword, $ctrl.confirmPassword)">
+    <input type="text" style="display:none">
+    <input type="password" style="display:none">
+    <div layout="column">
+      <md-input-container class="user-setting-form-old-password">
+        <label>Old password</label>
+        <md-icon md-svg-icon="action:lock"></md-icon>
+        <input ng-change="$ctrl.inputChange()" type="password" required name="oldPassword" ng-model="$ctrl.oldPassword" />
+        <div ng-messages="$ctrl.userSettingForm.oldPassword.$error">
+          <div ng-message="required">Old password is required.</div>
+        </div>
+      </md-input-container>
+      <md-input-container class="user-setting-form-new-password">
+        <label>New password</label>
+        <md-icon md-svg-icon="image:control_point"></md-icon>
+        <input ng-change="$ctrl.inputChange()" type="password" required name="newPassword" ng-model="$ctrl.newPassword" />
+        <div ng-messages="$ctrl.userSettingForm.newPassword.$error">
+          <div ng-message="required">New Password is required.</div>
+        </div>
+      </md-input-container>
+      <md-input-container class="user-setting-form-confirm-password">
+        <label>Confirm password</label>
+        <md-icon md-svg-icon="image:control_point_duplicate"></md-icon>
+        <input ng-change="$ctrl.inputChange()" type="password" required name="confirmPassword" ng-model="$ctrl.confirmPassword" />
+        <div ng-messages="$ctrl.userSettingForm.confirmPassword.$error">
+          <div ng-message="required">Confirm password is required.</div>
+          <div ng-message="notMatch">Password not match.</div>
+        </div>
+      </md-input-container>
+    </div>
+    <div layout="row" layout-align="end center">
+      <div ng-messages="$ctrl.apiMessage" class="api-messages">
+        <span ng-message="error" class="md-caption api-message-error">
+          <md-icon class="error-icon" md-svg-icon="action:announcement"></md-icon>
+          {{$ctrl.apiMessage.error}}
+        </span>
+        <span ng-message="success" class="md-caption api-message-success">
+          <md-icon class="success-icon" md-svg-icon="action:announcement"></md-icon>
+          {{$ctrl.apiMessage.success}}
+        </span>
+      </div>
+      <span flex></span>
+      <md-button type="submit" class="md-primary md-raised">Reset password</md-button>
+    </div>
+  </form>
+</div>

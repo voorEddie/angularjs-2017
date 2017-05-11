@@ -1,14 +1,20 @@
 const ToolbarComponent = {
   template: require('./toolbar.html'),
   controller: class ToolbarComponent {
-    constructor($mdDialog, AuthService) {
+    constructor($transitions, $state, $mdDialog, AuthService) {
       'ngInject';
+      this.$transitions = $transitions;
+      this.$state = $state;
       this.$mdDialog = $mdDialog;
       this.AuthService = AuthService;
     }
 
     $onInit() {
       this.currentUser = this.AuthService.userData.username;
+      this.currentFeatureName = this._getCurrentFeatureName(this.$state.current.url);
+      this.$transitions.onSuccess({}, () => {
+        this.currentFeatureName = this._getCurrentFeatureName(this.$state.current.url);
+      });
     }
 
     openMenu($mdMenu, ev) {
@@ -30,6 +36,16 @@ const ToolbarComponent = {
         controllerAs: '$ctrl'
       })
       .then(() => this.AuthService.clearAuth());
+    }
+
+    _getCurrentFeatureName(featureName) {
+      let result =  featureName.replace(/\//g, '').split('-').join(' ');
+      if (result === 'smart' || result === 'dslr') {
+        result = result.toUpperCase();
+      } else if (result === 'hmt') {
+        result = 'health monitor tool';
+      }
+      return result;
     }
   }
 };

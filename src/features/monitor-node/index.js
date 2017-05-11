@@ -1,5 +1,6 @@
 import uiRouter from 'angular-ui-router';
 import MonitorNodeComponent from './monitor-node.component';
+import './monitor-node.css';
 
 const monitorNode = angular
   .module('monitorNode', [

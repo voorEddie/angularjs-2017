@@ -40,6 +40,38 @@ app-root {
   height: 100%;
 }
 
+/*global api-message style*/
+.api-messages {
+  transition: .5s ease all;
+  position: relative;
+}
+
+.api-messages.ng-active {
+  opacity: 1;
+  top: 0;
+}
+.api-messages.ng-inactive {
+  opacity: 0;
+  top: 10px;
+}
+
+.api-message-error,
+.api-message-error .error-icon {
+  color: #e53935;
+}
+
+.api-message-progress {
+  color: #0091ea;
+}
+.api-message-progress .progress-icon {
+  margin-right: 10px;
+}
+
+.api-message-success,
+.api-message-success .success-icon {
+  color: #43a047;
+}
+
 
 /*override angular-loading-bar default color*/
 #loading-bar .bar {

@@ -1,0 +1,13 @@
+<!-- <div>{{$ctrl.nodeConfig}}</div>
+<div ui-view></div> -->
+<div flex layout="column">
+  <md-subheader layout="row">
+    Current selected SSD: [[SSD NAME]]
+    <md-button class="md-primary" ng-click="$ctrl.toggleTree('groot')">Toggle Tree</md-button>
+  </md-subheader>
+  <div layout="row" flex class="">
+    <div flex ui-view></div>
+    <app-tree-view
+      node-config="$ctrl.nodeConfig"></app-side-view>
+  </div>
+</div>

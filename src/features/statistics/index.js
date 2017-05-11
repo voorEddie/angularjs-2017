@@ -1,5 +1,6 @@
 import uiRouter from 'angular-ui-router';
 import StatisticsComponent from './statistics.component';
+import './statistics.css';
 
 const statistics = angular
   .module('statistics', [

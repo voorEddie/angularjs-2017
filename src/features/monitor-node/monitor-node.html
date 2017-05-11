@@ -1,0 +1,38 @@
+<div class="monitor-node-inner">
+  <div class="md-body-2" ng-if="!$ctrl.hasNodeConfig">
+    <p><md-icon class="md-warn md-hue-1" md-svg-icon="action:announcement"></md-icon>
+      In order to use SSD Health Monitor Tool, you need to add Monitor Node & Server configurations first.</p>
+    <md-divider></md-divider>
+  </div>
+  <md-button
+    class="md-primary"
+    ng-click="$ctrl.monitorNodeAdd($ctrl.nodeConfig, $event)"><md-icon md-svg-icon="av:queue"></md-icon>&nbsp;Add Monitor Node&nbsp;</md-button>
+  <md-divider></md-divider>
+  <md-list>
+    <md-list-item
+      class="node-list-item md-3-line"
+      ng-repeat-start="(monitorNodeIp, monitorNodeDetail) in $ctrl.nodeConfig"
+      ng-click="$ctrl.monitorNodeModify(monitorNodeIp, monitorNodeDetail, $ctrl.nodeConfig, $event)">
+      <md-icon class="md-primary md-hue-2" md-svg-icon="hardware:desktop_windows"></md-icon>
+      <div class="md-list-item-text">
+        <h3>{{monitorNodeDetail.nodedescription}}</h3>
+        <p>{{'IP Address: ' + monitorNodeIp + ' | Port: ' + monitorNodeDetail.nodeport}}</p>
+        <p>{{'DSLR: ' + monitorNodeDetail.dslr + ' | SMART: ' + monitorNodeDetail.smart}}</p>
+      </div>
+      <md-icon class="md-secondary" md-svg-icon="action:settings" ng-click="$ctrl.monitorNodeModify(monitorNodeIp, monitorNodeDetail, $ctrl.nodeConfig, $event)" aria-label="Monitor Node settings"></md-icon>
+      <md-icon class="md-secondary md-warn md-hue-2" md-svg-icon="action:delete" ng-click="$ctrl.monitorNodeDelete(monitorNodeIp, monitorNodeDetail.nodedescription, $event)" aria-label="Delete Montior Node"></md-icon>
+    </md-list-item>
+    <md-list-item
+      class="server-list-item"
+      ng-repeat="server in monitorNodeDetail.servers"
+      ng-repeat-end>
+      <md-icon class="server-list-item-icon" md-svg-icon="hardware:dock"></md-icon>
+      <p>{{server.description + ' (' + server.ip_address + ')'}}</p>
+    </md-list-item>
+  </md-list>
+  <div ng-messages="$ctrl.apiMessage" class="api-messages">
+    <md-icon class="md-warn md-hue-1" md-svg-icon="action:announcement"></md-icon>
+    <span ng-message="error" class="md-caption api-message-error">{{$ctrl.apiMessage.error}}</span>
+    <span ng-message="success" class="md-caption api-message-success">{{$ctrl.apiMessage.success}}</span>
+  </div>
+</div>
