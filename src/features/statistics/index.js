@@ -7,6 +7,7 @@ const statistics = angular
     uiRouter
   ])
   .component('appStatistics', StatisticsComponent)
+  .value('EventEmitter', payload => ({ $event: payload }))
   .config(($stateProvider) => {
     'ngInject';
     $stateProvider

@@ -14,7 +14,16 @@ const BaseComponent = {
       this.ApiService.api('GET', 'allMonitorServerLists')
         .then(res => this.nodeConfig = res);
     };
-    
+
+    loadSsdInfo({nodeIp, serverIndex, ssdList, isLoadingSsd, isToggleOpen}) {
+      let server = this.nodeConfig[nodeIp].servers[serverIndex];
+      server.isLoadingSsd = false;
+      server.loadedSsd = isLoadingSsd;
+      server.isToggleOpen = isToggleOpen;
+      server.ssdList = ssdList;
+      this.nodeConfig = JSON.parse(JSON.stringify(this.nodeConfig));
+    }
+
     openMenu($mdMenu, ev) {
       $mdMenu.open(ev);
     }

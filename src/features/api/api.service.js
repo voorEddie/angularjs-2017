@@ -3,17 +3,18 @@ class ApiService {
     'ngInject';
     this.$q = $q;
     this.$http = $http;
-    this.debug = true;
+    this.debug = false;
   }
 
-  api(method, url, data) {
+  api(method, url, data, params) {
     const { $q, $http } = this;
 
     return $q((resolve, reject) => {
       $http({
         method: this.debug ? 'GET' : method,
         url: this.debug ? url + '.json' : '../' + url,
-        data: data
+        data,
+        params
       })
       .then(({data}) => {
         resolve(data);

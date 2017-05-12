@@ -1,23 +1,40 @@
 <md-sidenav
   md-component-id="groot"
-  class="md-sidenav-right"
+  class="md-sidenav-right hmt-tree-view"
   md-whiteframe="4">
-  <md-list>
+  <md-list class="node-list">
     <md-list-item
       class="node-list-item md-2-line"
       ng-repeat-start="(monitorNodeIp, monitorNodeDetail) in $ctrl.nodeConfig">
-      <md-icon class="md-primary md-hue-2" md-svg-icon="hardware:desktop_windows"></md-icon>
+      <md-icon class="md-primary md-hue-2 node-icon" md-svg-icon="hardware:desktop_windows"></md-icon>
       <div class="md-list-item-text">
         <h3>{{monitorNodeDetail.nodedescription}}</h3>
         <p>{{'IP: ' + monitorNodeIp}}</p>
       </div>
     </md-list-item>
-    <md-list-item
-      class="server-list-item"
-      ng-repeat="server in monitorNodeDetail.servers"
-      ng-repeat-end>
-      <md-icon class="server-list-item-icon" md-svg-icon="hardware:dock"></md-icon>
-      <p>{{server.description + ' (' + server.ip_address + ')'}}</p>
-    </md-list-item>
+    <div layout="column" ng-repeat="server in monitorNodeDetail.servers track by $index" ng-repeat-end>
+      <md-list-item
+        class="server-list-item"
+        ng-click="$ctrl.toggleServer(monitorNodeIp, $index)"
+        ng-disabled="server.isLoadingSsd">
+        <md-progress-circular ng-show="server.isLoadingSsd" class="progress-icon" md-mode="indeterminate" md-diameter="17px"></md-progress-circular>
+        <md-icon ng-show="!server.isToggleOpen && !server.isLoadingSsd" class="toggle-icon" md-svg-icon="navigation:arrow_drop_down" aria-label="Open"></md-icon>
+        <md-icon ng-show="server.isToggleOpen" class="toggle-icon" md-svg-icon="navigation:arrow_drop_up" aria-label="Close"></md-icon>
+        <md-icon class="server-icon" md-svg-icon="hardware:dock"></md-icon>
+        <p>{{server.description + ' (' + server.ip_address + ')'}}</p>
+      </md-list-item>
+      <md-list ng-class="server.isToggleOpen ? 'ssd-list open' : 'ssd-list close'">
+        <md-list-item
+          class="ssd-list-item"
+          ng-repeat="ssd in server.ssdList track by $index"
+          ng-click="$ctrl.selectSsd(ssd)">
+          <md-icon class="ssd-icon" md-svg-icon="device:storage"></md-icon>
+          <p>{{ssd.data}}</p>
+        </md-list-item>
+      </md-list>
+    </div>
+
+
+
   </md-list>
 </md-sidenav>

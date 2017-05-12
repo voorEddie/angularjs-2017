@@ -1,18 +1,27 @@
 const StatisticsComponent = {
   bindings: {
-    nodeConfig: '<'
+    nodeConfig: '<',
+    onLoadSsdInfo: '&'
   },
   template: require('./statistics.html'),
   controller: class StatisticsComponent {
-    constructor($mdSidenav) {
+    constructor($mdSidenav, EventEmitter) {
       'ngInject';
       this.$mdSidenav = $mdSidenav;
+      this.EventEmitter = EventEmitter;
     }
 
     $onChanges(changes) {
       if (changes.nodeConfig && !changes.nodeConfig.isFirstChange()) {
-        this.nodeConfig = Object.assign({}, this.nodeConfig);
+        this.nodeConfig = JSON.parse(JSON.stringify(this.nodeConfig));
       }
+
+    }
+
+    loadSsdInfo({nodeIp, serverIndex, ssdList, isLoadingSsd, isToggleOpen}) {
+      this.onLoadSsdInfo(
+        this.EventEmitter({nodeIp, serverIndex, ssdList, isLoadingSsd, isToggleOpen})
+      )
     }
 
     toggleTree(id) {

@@ -1,0 +1,26 @@
+[
+  {
+    "data": "0123456789ABCDEF0000(CXV8201Q)",
+    "attr": {
+      "rel": "ssd",
+      "id": "0123456789ABCDEF0000_109D105D112D107",
+      "text": "NVMe@480 GB  @5:1@CXV8201Q@SAMSUNGNVMeSSDPM963@0123456789ABCDEF0000@Normal@null"
+    }
+  },
+  {
+    "data": "0123456789ABCDEF0001(CXV8201Q)",
+    "attr": {
+      "rel": "ssd",
+      "id": "0123456789ABCDEF0001_109D105D112D107",
+      "text": "NVMe@480 GB  @5:1@CXV8201Q@SAMSUNGNVMeSSDPM963@0123456789ABCDEF0001@Normal@null"
+    }
+  },
+  {
+    "data": "0123456789ABCDEF0002(CXV8201Q)",
+    "attr": {
+      "rel": "ssd",
+      "id": "0123456789ABCDEF0002_109D105D112D107",
+      "text": "NVMe@480 GB  @5:1@CXV8201Q@SAMSUNGNVMeSSDPM963@0123456789ABCDEF0002@Normal@null"
+    }
+  }
+]

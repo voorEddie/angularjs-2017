@@ -1,10 +1,8 @@
-.toolbar-account-menu {
-  position: absolute;
-  right: 80px;
+.hmt-toolbar .toolbar-feature-name {
+  margin-left: 20px;
+  text-transform: capitalize;
 }
 
-.toolbar-feature-name {
-  margin-left: 40px;
-  margin-right: 40px;
-  text-transform: capitalize;
+.hmt-toolbar .toolbar-account-menu {
+  margin-right: 20px !important;
 }

@@ -1,29 +1,29 @@
 <md-toolbar
-  layout="row"
-  layout-align="start center"
-  class="md-accent md-hue-1 md-whiteframe-3dp">
-  <h2 class="md-headline toolbar-feature-name">{{$ctrl.currentFeatureName}}</h2>
-  <md-menu class="toolbar-account-menu">
-    <md-button aria-label="Open account menu" class="md-icon-button" ng-click="$ctrl.openMenu($mdMenu, $event)">
-      <md-icon md-svg-icon="social:person"></md-icon>
-    </md-button>
-    <md-menu-content width="4">
-      <md-menu-item>
-        <md-button disabled style="color: rgba(0,0,0,0.55);">Logged in as: {{::$ctrl.currentUser}}</md-button>
-      </md-menu-item>
-      <md-menu-divider></md-menu-divider>
-      <md-menu-item>
-        <md-button ui-sref="base.userSetting">
-          <md-icon md-svg-icon="hardware:security"></md-icon>
-          User setting
-        </md-button>
-      </md-menu-item>
-      <md-menu-item>
-        <md-button ng-click="$ctrl.logout($event)">
-          <md-icon md-svg-icon="action:exit_to_app"></md-icon>
-          Logout
-        </md-button>
-      </md-menu-item>
-    </md-menu-content>
-  </md-menu>
+  class="md-accent md-hue-1 md-whiteframe-3dp hmt-toolbar">
+  <div class="md-toolbar-tools">
+  <h2 flex class="md-headline toolbar-feature-name">{{$ctrl.currentFeatureName}}</h2>
+    <md-menu class="toolbar-account-menu">
+      <md-button aria-label="Open account menu" class="md-icon-button" ng-click="$ctrl.openMenu($mdMenu, $event)">
+        <md-icon md-svg-icon="social:person"></md-icon>
+      </md-button>
+      <md-menu-content width="4">
+        <md-menu-item>
+          <md-button disabled style="color: rgba(0,0,0,0.55);">Logged in as: {{::$ctrl.currentUser}}</md-button>
+        </md-menu-item>
+        <md-menu-divider></md-menu-divider>
+        <md-menu-item>
+          <md-button ui-sref="base.userSetting">
+            <md-icon md-svg-icon="hardware:security"></md-icon>
+            User setting
+          </md-button>
+        </md-menu-item>
+        <md-menu-item>
+          <md-button ng-click="$ctrl.logout($event)">
+            <md-icon md-svg-icon="action:exit_to_app"></md-icon>
+            Logout
+          </md-button>
+        </md-menu-item>
+      </md-menu-content>
+    </md-menu>
+  </div>
 </md-toolbar>
