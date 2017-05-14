@@ -61,9 +61,18 @@
   font-size: 13px;
 }
 
+.hmt-tree-view .ssd-list-item.selected {
+  background-color: rgba(0, 130, 200, 0.1);
+  color: #0091ea;
+}
+
 .hmt-tree-view .ssd-icon {
   margin: 0 5px 0 0 !important;
   color: #333;
+}
+
+.hmt-tree-view .ssd-list-item.selected .ssd-icon {
+  color: #0091ea;
 }
 
 .hmt-tree-view .ssd-list-item > div {

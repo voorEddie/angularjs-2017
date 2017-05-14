@@ -24,6 +24,10 @@ const BaseComponent = {
       this.nodeConfig = JSON.parse(JSON.stringify(this.nodeConfig));
     }
 
+    selectSsd({ssdId}) {
+      this.selectedSsd = ssdId;
+    }
+
     openMenu($mdMenu, ev) {
       $mdMenu.open(ev);
     }

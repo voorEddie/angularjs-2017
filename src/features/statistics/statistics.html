@@ -1,14 +1,16 @@
-<!-- <div>{{$ctrl.nodeConfig}}</div>
-<div ui-view></div> -->
 <div flex layout="column">
   <md-subheader layout="row">
-    Current selected SSD: [[SSD NAME]]
-    <md-button class="md-primary" ng-click="$ctrl.toggleTree('groot')">Toggle Tree</md-button>
+    <span flex ng-if="$ctrl.selectedSsd">Current selected SSD: {{$ctrl.selectedSsd}}</span>
+    <md-button class="md-primary md-raised" ng-click="$ctrl.toggleTree('groot')">
+      Select SSD in Tree-view
+    </md-button>
   </md-subheader>
   <div layout="row" flex class="">
     <div flex ui-view></div>
     <app-tree-view
       node-config="$ctrl.nodeConfig"
-      load-ssd-info="$ctrl.loadSsdInfo($event)"></app-tree-view>
+      load-ssd-info="$ctrl.loadSsdInfo($event)"
+      select-ssd="$ctrl.selectSsd($event)"
+      selected-ssd="$ctrl.selectedSsd"></app-tree-view>
   </div>
 </div>

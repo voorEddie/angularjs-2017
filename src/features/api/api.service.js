@@ -3,7 +3,7 @@ class ApiService {
     'ngInject';
     this.$q = $q;
     this.$http = $http;
-    this.debug = false;
+    this.debug = true;
   }
 
   api(method, url, data, params) {

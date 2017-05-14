@@ -1,7 +1,9 @@
 const TreeViewComponent = {
   bindings: {
     nodeConfig: '<',
-    loadSsdInfo: '&'
+    selectedSsd: '<',
+    loadSsdInfo: '&',
+    selectSsd: '&'
   },
   template: require('./tree-view.html'),
   controller: class TreeViewComponent {
@@ -40,6 +42,12 @@ const TreeViewComponent = {
           server.isLoadingSsd = false;
         });
       }
+    }
+
+    onSelectSsd(ssdId) {
+      this.selectSsd(
+        this.EventEmitter({ssdId})
+      );
     }
 
   }

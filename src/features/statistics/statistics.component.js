@@ -1,7 +1,9 @@
 const StatisticsComponent = {
   bindings: {
     nodeConfig: '<',
-    onLoadSsdInfo: '&'
+    selectedSsd: '<',
+    onLoadSsdInfo: '&',
+    onSelectSsd: '&'
   },
   template: require('./statistics.html'),
   controller: class StatisticsComponent {
@@ -15,13 +17,18 @@ const StatisticsComponent = {
       if (changes.nodeConfig && !changes.nodeConfig.isFirstChange()) {
         this.nodeConfig = JSON.parse(JSON.stringify(this.nodeConfig));
       }
-
     }
 
     loadSsdInfo({nodeIp, serverIndex, ssdList, isLoadingSsd, isToggleOpen}) {
       this.onLoadSsdInfo(
         this.EventEmitter({nodeIp, serverIndex, ssdList, isLoadingSsd, isToggleOpen})
-      )
+      );
+    }
+
+    selectSsd({ssdId}) {
+      this.onSelectSsd(
+        this.EventEmitter({ssdId})
+      );
     }
 
     toggleTree(id) {
