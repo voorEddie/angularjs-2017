@@ -1,19 +1,31 @@
 const BaseComponent = {
   template: require('./base.html'),
   controller: class BaseComponent {
-    constructor(ApiService) {
+    constructor(ApiService, AuthService) {
       'ngInject';
       this.ApiService = ApiService;
+      this.AuthService = AuthService;
     }
 
     $onInit() {
         this.getNodeConfig();
+        this.getFilterTemplates();
     }
 
     getNodeConfig() {
-      this.ApiService.api('GET', 'allMonitorServerLists')
-        .then(res => this.nodeConfig = res);
+      this.ApiService.api('GET', 'allMonitorServerLists', null, {sessionId:this.AuthService.userData.sessionId})
+        .then(res => {
+          this.nodeConfig = res;
+          this.selectedSsd = null;
+        });
     };
+
+    getFilterTemplates() {
+      this.ApiService.api('GET', 'filterTemplates', null, {sessionId:this.AuthService.userData.sessionId})
+      .then(res => {
+        this.filterTemplates = res;
+      });
+    }
 
     loadSsdInfo({nodeIp, serverIndex, ssdList, isLoadingSsd, isToggleOpen}) {
       let server = this.nodeConfig[nodeIp].servers[serverIndex];
@@ -24,8 +36,10 @@ const BaseComponent = {
       this.nodeConfig = JSON.parse(JSON.stringify(this.nodeConfig));
     }
 
-    selectSsd({ssdId}) {
-      this.selectedSsd = ssdId;
+    selectSsd({ssd, nodeIp, serverIp}) {
+      this.selectedSsd = JSON.parse(JSON.stringify(ssd));
+      this.selectedNodeIp = nodeIp;
+      this.selectedServerIp = serverIp;
     }
 
     openMenu($mdMenu, ev) {

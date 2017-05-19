@@ -11,10 +11,9 @@ class AuthService {
 
     return this.ApiService.api('POST', 'login', {username, password})
       .then((res) => {
-        // TODO: should replace dummy sessionId when Server can reposonse a real sessionId
         this.userData = {
           username, password,
-          sessionId: 'someDummySessionId'
+          sessionId: res.sessionId
         };
         sessionStorage.setItem('hmtSessionData', JSON.stringify(Object.assign({}, this.userData)));
       });

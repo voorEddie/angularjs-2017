@@ -26,16 +26,12 @@
       <md-list ng-class="server.isToggleOpen ? 'ssd-list open' : 'ssd-list close'">
         <md-list-item
           ng-repeat="ssd in server.ssdList track by $index"
-          ng-class="ssd.data === $ctrl.selectedSsd ? 'ssd-list-item selected' : 'ssd-list-item'"
-          ng-click="$ctrl.onSelectSsd(ssd.data)">
+          ng-class="ssd.data === $ctrl.selectedSsd.data ? 'ssd-list-item selected' : 'ssd-list-item'"
+          ng-click="$ctrl.onSelectSsd(ssd, monitorNodeIp, server.ip_address)">
           <md-icon class="ssd-icon" md-svg-icon="device:storage"></md-icon>
           <p>{{ssd.data}}</p>
-          <!-- <p>{{'!:' + $ctrl.selectedSsd}}</p> -->
         </md-list-item>
       </md-list>
     </div>
-
-
-
   </md-list>
 </md-sidenav>

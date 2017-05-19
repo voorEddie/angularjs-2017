@@ -14,7 +14,8 @@ const login = angular
     $stateProvider
       .state('login', {
         url: '/login',
-        component: 'appLogin'
+        component: 'appLogin',
+        params: {invalidSession: null}
       });
   })
   .name;

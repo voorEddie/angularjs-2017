@@ -1,0 +1,35 @@
+<md-table-container>
+  <table md-table>
+    <thead md-head>
+    <tr md-row>
+      <th md-column><span>Description</span></th>
+      <th md-column><span>Level</span></th>
+      <th md-column>MonitorNode</th>
+      <th md-column>Host</th>
+      <th md-column>Disk</th>
+      <th md-column>Generated Time</th>
+    </tr>
+    </thead>
+    <tbody md-body>
+    <tr md-row ng-repeat="alarm in $ctrl.alarm | limitTo: $ctrl.query.limit: ($ctrl.query.page - 1) * $ctrl.query.limit">
+      <td md-cell>{{alarm.ErrorDes}}</td>
+      <td md-cell>{{alarm.Level}}</td>
+      <td md-cell>{{alarm.NodeIP}}</td>
+      <td md-cell>{{alarm.IP}}</td>
+      <td md-cell>{{alarm.SerialNumber}}</td>
+      <td md-cell>{{alarm.Date}}</td>
+    </tr>
+    </tbody>
+  </table>
+</md-table-container>
+<md-table-pagination md-limit="$ctrl.query.limit"  md-limit-options="[8, 15, 25]" md-page="$ctrl.query.page" md-total="{{$ctrl.total}}"></md-table-pagination>
+<div ng-messages="$ctrl.apiMessage" class="api-messages">
+  <span ng-message="error" class="md-caption api-message-error">
+    <md-icon class="error-icon" md-svg-icon="action:announcement"></md-icon>
+    {{$ctrl.apiMessage.error}}
+  </span>
+  <span ng-message="success" class="md-caption api-message-success">
+    <md-icon class="success-icon" md-svg-icon="action:announcement"></md-icon>
+    {{$ctrl.apiMessage.success}}
+  </span>
+</div>

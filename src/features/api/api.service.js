@@ -1,8 +1,9 @@
 class ApiService {
-  constructor($q, $http) {
+  constructor($q, $http, $state) {
     'ngInject';
     this.$q = $q;
     this.$http = $http;
+    this.$state = $state;
     this.debug = true;
   }
 
@@ -20,6 +21,9 @@ class ApiService {
         resolve(data);
       })
       .catch(({status, statusText}) => {
+        if (status === 403) {
+          this.$state.go('login', {invalidSession: true});
+        }
         reject('Error: ' + status + ' ' + statusText);
       });
     });

@@ -7,9 +7,10 @@ const TreeViewComponent = {
   },
   template: require('./tree-view.html'),
   controller: class TreeViewComponent {
-    constructor(ApiService, TreeViewService, EventEmitter) {
+    constructor(ApiService, AuthService, TreeViewService, EventEmitter) {
       'ngInject';
       this.ApiService = ApiService;
+      this.AuthService = AuthService;
       this.TreeViewService = TreeViewService;
       this.EventEmitter = EventEmitter;
     }
@@ -32,7 +33,7 @@ const TreeViewComponent = {
         );
       } else {
         server.isLoadingSsd = true;
-        this.ApiService.api('GET', 'diskinfo', null, {id: this.TreeViewService.getSsdId(nodeIp, server.ip_address)})
+        this.ApiService.api('GET', 'diskinfo', null, {id: this.TreeViewService.getSsdId(nodeIp, server.ip_address), sessionId: this.AuthService.userData.sessionId})
         .then(ssdList => {
           this.loadSsdInfo(
             this.EventEmitter({nodeIp, serverIndex, ssdList, isLoadingSsd: true, isToggleOpen: true})
@@ -44,9 +45,9 @@ const TreeViewComponent = {
       }
     }
 
-    onSelectSsd(ssdId) {
+    onSelectSsd(ssd, nodeIp, serverIp) {
       this.selectSsd(
-        this.EventEmitter({ssdId})
+        this.EventEmitter({ssd, nodeIp, serverIp})
       );
     }
 

@@ -72,6 +72,14 @@ app-root {
   color: #43a047;
 }
 
+/*dialog window common style*/
+.hmt-dialog,
+.hmt-dialog > * {
+  display: flex;
+  flex-direction: column;
+  overflow: auto;
+}
+
 
 /*override angular-loading-bar default color*/
 #loading-bar .bar {

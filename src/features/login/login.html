@@ -1,6 +1,7 @@
 <div class="login-inner md-whiteframe-3dp">
   <app-login-form
     is-authenticated="$ctrl.isAuthenticated"
+    is-invalid-session="$ctrl.$stateParams.invalidSession"
     error-message="$ctrl.errorMessage"
     username="$ctrl.username"
     on-login="$ctrl.login($event)"

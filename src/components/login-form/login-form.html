@@ -26,7 +26,9 @@
 </div>
 
 <div ng-if="$ctrl.isAuthenticated">
-  <h1 class="md-display-1 login-form-title">You are already logged in</h1>
+  <h1 class="md-display-1 login-form-title">
+    {{$ctrl.isInvalidSession ? 'Your session has expired, please logout' : 'You are already logged in'}}
+  </h1>
   <div layout="column">
     <md-input-container class="login-form-username">
       <label>Username</label>

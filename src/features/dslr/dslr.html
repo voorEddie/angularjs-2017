@@ -1,0 +1,32 @@
+<div class="dslr-inner">
+  <div ng-if="$ctrl.apiMessage.error" ng-messages="$ctrl.apiMessage" class="api-messages">
+    <md-icon class="md-warn md-hue-1" md-svg-icon="action:announcement"></md-icon>
+    <span ng-message="error" class="md-caption api-message-error">{{$ctrl.apiMessage.error}}</span>
+    <span ng-message="success" class="md-caption api-message-success">{{$ctrl.apiMessage.success}}</span>
+  </div>
+  <md-nav-bar
+    ng-if="$ctrl.apiMessage.success"
+    md-selected-nav-item="$ctrl.currentNavItem"
+    nav-bar-aria-label="DSLR navigation links">
+    <md-nav-item md-nav-click="goto('basic')" name="basic">
+      Full list
+    </md-nav-item>
+    <md-nav-item md-nav-click="goto('uDataOverview')" name="uDataOverview">
+      Udata overview
+    </md-nav-item>
+    <md-nav-item md-nav-click="goto('tDataOverview')" name="tDataOverview">
+      Tdata overview
+    </md-nav-item>
+    <md-nav-item md-nav-click="goto('advanced')" name="advanced">
+      Advanced compare
+    </md-nav-item>
+  </md-nav-bar>
+  <div ng-if="$ctrl.currentNavItem === 'basic'">
+    <app-statistics-basic
+      data="$ctrl.dslrInfo"></app-statistics-basic>
+  </div>
+  <div ng-if="$ctrl.currentNavItem === 'advanced'">
+    <app-statistics-compare
+      data="$ctrl.dslrInfo"></app-statistics-compare>
+  </div>
+</div>

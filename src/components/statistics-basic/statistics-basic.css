@@ -1,0 +1,23 @@
+.statistics-table-panel {
+  margin-top: 25px;
+}
+
+.statistics-table-panel-searcher {
+  width: calc(100% - 50px);
+  padding: 8px;
+  border: rgba(0,0,0,0.12) 1px solid;
+  font-size: 13px;
+}
+
+.statistics-table-panel-searcher:focus {
+  border-color: rgba(0,0,0,0.32);
+}
+
+.statistics-table-panel-filter .md-button:first-child {
+  margin: 0;
+  text-transform: none;
+}
+
+.statistics-table-panel-filter-dropdown {
+  color: #555;
+}

@@ -1,14 +1,3 @@
-app-monitor-node-dialog,
-.monitor-node-dialog-inner {
-  display: flex;
-  flex-direction: column;
-  overflow: auto;
-}
-
-/*.monitor-node-dialog-inner {
-  min-width: 800px;
-}*/
-
 .monitor-node-dialog-inner md-input-container {
   margin: 8px 0;
 }

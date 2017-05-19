@@ -5,10 +5,11 @@ const MonitorNodeComponent = {
   },
   template: require('./monitor-node.html'),
   controller: class MonitorNodeComponent {
-    constructor($mdDialog, ApiService) {
+    constructor($mdDialog, ApiService, AuthService) {
       'ngInject';
       this.$mdDialog = $mdDialog;
       this.ApiService = ApiService;
+      this.AuthService = AuthService;
     }
 
     $onChanges(changes) {
@@ -31,6 +32,7 @@ const MonitorNodeComponent = {
         template: `
           <md-dialog aria-label="Modify Monitor Node">
             <app-monitor-node-dialog
+              class="hmt-dialog"
               dialog-type="$ctrl.dialogType"
               dialog-title="$ctrl.dialogTitle"
               all-node-list="$ctrl.allNodeList"></app-monitor-node-dialog>
@@ -53,6 +55,7 @@ const MonitorNodeComponent = {
         template: `
           <md-dialog aria-label="Modify Monitor Node">
             <app-monitor-node-dialog
+              class="hmt-dialog"
               dialog-type="$ctrl.dialogType"
               dialog-title="$ctrl.dialogTitle"
               node-ip="$ctrl.nodeIp"
@@ -78,7 +81,10 @@ const MonitorNodeComponent = {
         targetEvent: ev,
         template: `
           <md-dialog aria-label="Confirm action">
-            <app-confirm-dialog confirm-title="$ctrl.title" confirm-text="$ctrl.text"></app-confirm-dialog>
+            <app-confirm-dialog
+              class="hmt-dialog"
+              confirm-title="$ctrl.title"
+              confirm-text="$ctrl.text"></app-confirm-dialog>
           </md-dialog>
         `,
         controller: function () {
@@ -88,14 +94,15 @@ const MonitorNodeComponent = {
         controllerAs: '$ctrl'
       })
       .then(() => {
-        this.ApiService.api('POST', 'monitorNodeDel', {
-          nodeIP: nodeIp
+        this.ApiService.api(
+          'POST',
+          'monitorNodeDel', {nodeIP: nodeIp}, {sessionId: this.AuthService.userData.sessionId}
+        )
+        .then(successMsg => {
+          this.getNodeConfig();
+          this.apiMessage.success = 'Monitor node has been deleted successfully!';
         })
-          .then(successMsg => {
-            this.getNodeConfig();
-            this.apiMessage.success = 'Monitor node has been deleted successfully!';
-          })
-          .catch(errorMsg => this.apiMessage.error = errorMsg);
+        .catch(errorMsg => this.apiMessage.error = errorMsg);
       });
     }
   }

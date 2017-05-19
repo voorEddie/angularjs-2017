@@ -1,0 +1,167 @@
+[
+  {
+    "Bus Type": "NVMe",
+    "Disk Number": "5:1",
+    "Firmware Version": "CXV8201Q",
+    "Model Name": "SAMSUNGNVMeSSDPM963",
+    "Serial Number": "0123456789ABCDEF0000",
+    "Value": {
+      "Basic": [
+        {
+          "Bytes": "0",
+          "Description": "Critical Warning",
+          "Help Information": "0",
+          "Value": "0x00"
+        },
+        {
+          "Bytes": "2:1",
+          "Description": "Composite Temp",
+          "Help Information": "46 Celsius",
+          "Value": "0x013F"
+        },
+        {
+          "Bytes": "3",
+          "Description": "Available Spare",
+          "Help Information": "100%",
+          "Value": "0x64"
+        },
+        {
+          "Bytes": "4",
+          "Description": "Available Spare Threshold",
+          "Help Information": "10%",
+          "Value": "0x0A"
+        },
+        {
+          "Bytes": "5",
+          "Description": "Percentage Used",
+          "Help Information": "12%",
+          "Value": "0x0C"
+        },
+        {
+          "Bytes": "47:32",
+          "Description": "Data Units Read",
+          "Help Information": "23263764 (512000 Bytes)",
+          "Value": "0x0000000000000000000000000162FA14"
+        },
+        {
+          "Bytes": "63:48",
+          "Description": "Data Units Written",
+          "Help Information": "26393614 (512000 Bytes)",
+          "Value": "0x0000000000000000000000000192BC0E"
+        },
+        {
+          "Bytes": "79:64",
+          "Description": "Host Read Commands",
+          "Help Information": "1136368668",
+          "Value": "0x00000000000000000000000043BB9C1C"
+        },
+        {
+          "Bytes": "95:80",
+          "Description": "Host Write Commands",
+          "Help Information": "2251199543",
+          "Value": "0x000000000000000000000000862E9437"
+        },
+        {
+          "Bytes": "111:96",
+          "Description": "Controller Busy Time",
+          "Help Information": "1353 (Minutes)",
+          "Value": "0x00000000000000000000000000000549"
+        },
+        {
+          "Bytes": "127:112",
+          "Description": "Power Cycle",
+          "Help Information": "96",
+          "Value": "0x00000000000000000000000000000060"
+        },
+        {
+          "Bytes": "143:128",
+          "Description": "Power On Hours",
+          "Help Information": "1322",
+          "Value": "0x0000000000000000000000000000052A"
+        },
+        {
+          "Bytes": "159:144",
+          "Description": "Unsafe Shutdowns",
+          "Help Information": "82",
+          "Value": "0x00000000000000000000000000000052"
+        },
+        {
+          "Bytes": "175:160",
+          "Description": "Media & Data Integrity Err",
+          "Help Information": "0",
+          "Value": "0x00000000000000000000000000000000"
+        },
+        {
+          "Bytes": "191:176",
+          "Description": "Num of Err-Info Log Entries",
+          "Help Information": "8",
+          "Value": "0x00000000000000000000000000000008"
+        },
+        {
+          "Bytes": "195:192",
+          "Description": "Warning Composite Temp Time",
+          "Help Information": "0",
+          "Value": "0x00000000"
+        },
+        {
+          "Bytes": "199:196",
+          "Description": "Critical Composite Temp Time",
+          "Help Information": "0",
+          "Value": "0x00000000"
+        },
+        {
+          "Bytes": "201:200",
+          "Description": "Temp Sensor 1",
+          "Help Information": "46 Celsius",
+          "Value": "0x013F"
+        },
+        {
+          "Bytes": "203:202",
+          "Description": "Temp Sensor 2",
+          "Help Information": "0",
+          "Value": "0x0000"
+        },
+        {
+          "Bytes": "205:204",
+          "Description": "Temp Sensor 3",
+          "Help Information": "0",
+          "Value": "0x0000"
+        },
+        {
+          "Bytes": "207:206",
+          "Description": "Temp Sensor 4",
+          "Help Information": "0",
+          "Value": "0x0000"
+        },
+        {
+          "Bytes": "209:208",
+          "Description": "Temp Sensor 5",
+          "Help Information": "0",
+          "Value": "0x0000"
+        },
+        {
+          "Bytes": "211:210",
+          "Description": "Temp Sensor 6",
+          "Help Information": "0",
+          "Value": "0x0000"
+        },
+        {
+          "Bytes": "213:212",
+          "Description": "Temp Sensor 7",
+          "Help Information": "0",
+          "Value": "0x0000"
+        },
+        {
+          "Bytes": "215:214",
+          "Description": "Temp Sensor 8",
+          "Help Information": "0",
+          "Value": "0x0000"
+        }
+      ]
+    },
+    "message": "Success",
+    "status": "0",
+    "NAND Writes": "",
+    "Total LBAs Written": ""
+  }
+]

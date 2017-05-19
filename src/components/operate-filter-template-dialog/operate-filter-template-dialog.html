@@ -1,0 +1,57 @@
+<form name="$ctrl.operateFilterTemplateDialogForm" ng-submit="$ctrl.submit($ctrl.currentTemplate)">
+
+  <md-toolbar class="md-primary md-hue-2">
+    <div class="md-toolbar-tools">
+      <h2>{{::$ctrl.dialogTitle}}</h2>
+    </div>
+  </md-toolbar>
+
+  <md-dialog-content>
+    <div class="md-dialog-content">
+      <div layout="row">
+        <div
+          class="filter-template-radio-select">
+          <div layout="row">
+            <span class="md-body-2">Filter template list</span>
+            <span flex></span>
+            <md-switch
+              ng-if="$ctrl.currentTemplate"
+              class="md-warn"
+              ng-model="$ctrl.showTemplateDetail">
+              <span class="md-caption">{{$ctrl.showTemplateDetail ? 'Hide details' : 'Show details'}}</span>
+            </md-switch>
+          </div>
+          <md-divider></md-divider>
+          <md-radio-group ng-model="$ctrl.currentTemplate" class="md-warn">
+            <md-radio-button
+              ng-repeat="(key, value) in $ctrl.templates"
+              ng-value="key">
+              {{key}}<br/>
+            </md-radio-button>
+          </md-radio-group>
+        </div>
+        <div
+          ng-if="$ctrl.currentTemplate && $ctrl.showTemplateDetail"
+          class="filter-template-detail">
+          <div layout="row">
+            <span class="md-body-2">Selected filter template detail</span>
+            <span flex></span>
+            <md-icon class="md-warn" md-svg-icon="action:info_outline"><md-tooltip md-direction="left">List will be filtered by the following fields</md-tooltip></md-icon>
+          </div>
+          <md-divider></md-divider>
+          <md-list>
+            <md-list-item
+              ng-repeat="item in $ctrl.templates[$ctrl.currentTemplate].config">
+              <p>{{item}}</p>
+            </md-list-item>
+          </md-list>
+        </div>
+      <div>
+    </div>
+  </md-dialog-content>
+  <md-dialog-actions layout="row">
+    <md-button class="md-accent md-hue-3" ng-click="$ctrl.cancel()">Cancel</md-button>
+    <md-button type="submit" class="md-primary">Save</md-button>
+  </md-dialog-actions>
+
+</form>

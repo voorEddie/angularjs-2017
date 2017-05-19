@@ -15,14 +15,14 @@ const base = angular
       if (!AuthService.isAuthenticated()) {
         return $state.go('login');
       } else {
-        ApiService.api('GET', 'allMonitorServerLists')
-          .then(res => {
-            if (Object.getOwnPropertyNames(res).length > 0) {
-              return $state.go('base.dashboard');
-            } else {
-              return $state.go('base.monitorNode');
-            }
-          });
+        ApiService.api('GET', 'allMonitorServerLists', null, {sessionId: AuthService.userData.sessionId})
+        .then(res => {
+          if (Object.getOwnPropertyNames(res).length > 0) {
+            return $state.go('base.dashboard');
+          } else {
+            return $state.go('base.monitorNode');
+          }
+        });
       }
     };
     $urlRouterProvider

@@ -8,12 +8,13 @@ const MonitorNodeDialogComponent = {
   },
   template: require('./monitor-node-dialog.html'),
   controller: class MonitorNodeDialogComponent {
-    constructor($mdDialog, $timeout, MonitorNodeDialogService, ApiService) {
+    constructor($mdDialog, $timeout, MonitorNodeDialogService, ApiService, AuthService) {
       'ngInject';
       this.$timeout = $timeout;
       this.$mdDialog = $mdDialog;
       this.MonitorNodeDialogService = MonitorNodeDialogService;
       this.ApiService = ApiService;
+      this.AuthService = AuthService;
     }
 
     $onInit() {
@@ -40,12 +41,14 @@ const MonitorNodeDialogComponent = {
         let validateResult = this.MonitorNodeDialogService.validateDialogData(data, this.allNodeList, this.nodeIp);
         if (validateResult.isValid) {
           this.apiMessage.progress = 'Saving Monitor Node configuration...';
-          this.ApiService.api('POST', 'connectNode', {
-            nodeIP: data.nodeip,
-            port: data.nodeport
-          })
+          this.ApiService.api(
+            'POST',
+            'connectNode',
+            {nodeIP: data.nodeip, port: data.nodeport},
+            {sessionId: this.AuthService.userData.sessionId}
+          )
           .then(res => {
-            this.ApiService.api('POST', 'monitorNodeServer', data)
+            this.ApiService.api('POST', 'monitorNodeServer', data, {sessionId: this.AuthService.userData.sessionId})
             .then(res => {
               this.apiMessage.success = 'Save configuration successfully!';
               this.$timeout(() => {

@@ -1,10 +1,11 @@
 const LoginComponent = {
   template: require('./login.html'),
   controller: class LoginComponent {
-    constructor(AuthService, $state) {
+    constructor(AuthService, $state, $stateParams) {
       'ngInject';
       this.AuthService = AuthService;
       this.$state = $state;
+      this.$stateParams = $stateParams;
     }
 
     $onInit() {

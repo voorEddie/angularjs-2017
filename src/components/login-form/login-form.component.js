@@ -1,6 +1,7 @@
 const LoginFormComponent = {
   bindings: {
     isAuthenticated: '<',
+    isInvalidSession: '<',
     errorMessage: '<',
     username: '<',
     onLogin: '&',
@@ -13,6 +14,7 @@ const LoginFormComponent = {
       'ngInject';
       this.EventEmitter = EventEmitter;
     }
+
     onSubmit(username, password) {
       this.onLogin(
         this.EventEmitter({username, password})

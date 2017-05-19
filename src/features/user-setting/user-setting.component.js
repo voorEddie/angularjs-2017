@@ -18,7 +18,7 @@ const UserSettingComponent = {
           userName: this.AuthService.userData.username,
           oldPassword,
           newPassword
-        })
+        }, {sessionId: this.AuthService.userData.sessionId})
           .then(successMsg => this.apiMessage.success = 'Your password has been reset successfully!')
           .catch(errorMsg => this.apiMessage.error = errorMsg);
       } else {

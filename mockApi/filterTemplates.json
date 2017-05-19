@@ -1,0 +1,29 @@
+{
+  "Sensor": {
+    "config": [
+      "Temp Sensor 1",
+      "Temp Sensor 2",
+      "Temp Sensor 3",
+      "Temp Sensor 4",
+      "Temp Sensor 5",
+      "Temp Sensor 6",
+      "Temp Sensor 7",
+      "Temp Sensor 8"
+    ]
+  },
+  "Power related": {
+    "config": [
+      "Power Cycle",
+      "Power On Hours"
+    ]
+  },
+  "Space and data written": {
+    "config": [
+      "Available Spare",
+      "Available Spare Threshold",
+      "Percentage Used",
+      "Data Units Read",
+      "Data Units Written"
+    ]
+  }
+}

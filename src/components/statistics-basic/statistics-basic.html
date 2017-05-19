@@ -1,0 +1,68 @@
+<div ng-if="$ctrl.data">
+  <div
+    layout="row"
+    class="statistics-table-panel">
+    <div
+      flex
+      class="statistics-table-panel-filter">
+      <md-menu>
+        <md-button class="md-warn" aria-label="Open filter" ng-click="$ctrl.openMenu($mdMenu, $event)">
+          <md-icon md-svg-icon="content:filter_list"></md-icon>
+          <span>{{'Applied filter: ' + ($ctrl.selectedFilterTemplate ? $ctrl.selectedFilterTemplate : 'None')}}</span>
+        </md-button>
+        <md-menu-content width="4">
+          <md-menu-item ng-if="$ctrl.hasfilterTemplates">
+            <md-button ng-click="$ctrl.selectFilterTemplate($ctrl.selectedFilterTemplate, $ctrl.filterTemplates, $event)">
+              <md-icon class="md-warn" md-svg-icon="communication:clear_all"></md-icon>
+              <span class="md-caption statistics-table-panel-filter-dropdown">Select a filter template</span>
+            </md-button>
+          </md-menu-item>
+          <md-menu-item ng-if="$ctrl.selectedFilterTemplate">
+            <md-button ng-click="$ctrl.clearSelectedFilterTemplate()">
+              <md-icon md-svg-icon="action:subject"></md-icon>
+              <span class="md-caption statistics-table-panel-filter-dropdown">Clear applied filter template</span>
+            </md-button>
+          </md-menu-item>
+          <md-menu-item>
+            <md-button ng-click="$ctrl.createFilterTemplate($ctrl.data)">
+              <md-icon class="md-primary" md-svg-icon="av:playlist_add"></md-icon>
+              <span class="md-caption statistics-table-panel-filter-dropdown">Create a new filter template</span>
+            </md-button>
+          </md-menu-item>
+        </md-menu-content>
+      </md-menu>
+    </div>
+    <form
+      flex
+      name="$ctrl.filter.form">
+      <label>
+        <md-icon class="md-primary" md-svg-icon="action:search"></md-icon>
+        <input
+          class="statistics-table-panel-searcher"
+          ng-model="$ctrl.query.filter"
+          ng-model-options="$ctrl.filter.options"
+          placeholder="Type to search..."
+          type="text">
+      </label>
+    </form>
+  </div>
+  <md-table-container>
+    <table md-table>
+      <thead md-head>
+      <tr md-row>
+        <th md-column><span>Description</span></th>
+        <th md-column><span>Raw value</span></th>
+        <th md-column>Help information</th>
+      </tr>
+      </thead>
+      <tbody md-body>
+      <tr md-row ng-repeat="info in $ctrl.filteredData.Value.Basic | filter: $ctrl.query.filter | limitTo: $ctrl.query.limit: ($ctrl.query.page - 1) * $ctrl.query.limit">
+        <td md-cell>{{info.Description}}</td>
+        <td md-cell>{{info.Value}}</td>
+        <td md-cell>{{info['Help Information']}}</td>
+      </tr>
+      </tbody>
+    </table>
+  </md-table-container>
+  <md-table-pagination md-limit="$ctrl.query.limit"  md-limit-options="[8, 15, 25]" md-page="$ctrl.query.page" md-total="{{$ctrl.total}}"></md-table-pagination>
+</div>

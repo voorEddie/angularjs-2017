@@ -26,7 +26,10 @@ const ToolbarComponent = {
         targetEvent: ev,
         template: `
           <md-dialog aria-label="Confirm action">
-            <app-confirm-dialog confirm-title="$ctrl.title" confirm-text="$ctrl.text"></app-confirm-dialog>
+            <app-confirm-dialog
+              class="hmt-dialog"
+              confirm-title="$ctrl.title"
+              confirm-text="$ctrl.text"></app-confirm-dialog>
           </md-dialog>
         `,
         controller: function () {

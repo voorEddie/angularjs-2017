@@ -1,0 +1,357 @@
+{
+  "dslr": [
+    {
+      "Disk Number": "5:1",
+      "File Path": "/usr/local/Toolkit/VendorUtility/20170516_08h53m18s_CXV8201Q_0123456789ABCDEF0000_DSLR.txt",
+      "Firmware Version": "CXV8201Q",
+      "Model Name": "SAMSUNGNVMeSSDPM963",
+      "Serial Number": "0123456789ABCDEF0000",
+      "Tdata": {
+        "data": [
+          {
+            "Description": "DSLR Version",
+            "Value": "1"
+          },
+          {
+            "Description": "Last Sequence Number",
+            "Value": "1251"
+          },
+          {
+            "Description": "High Temperature",
+            "Value": "46 Celsius"
+          },
+          {
+            "Description": "Low Temperature",
+            "Value": "27 Celsius"
+          },
+          {
+            "Description": "POH Stamp",
+            "Value": "82801"
+          },
+          {
+            "Description": "E2EReadCRCError Count",
+            "Value": "0"
+          },
+          {
+            "Description": "E2ECRCCheck1Error Count",
+            "Value": "0"
+          },
+          {
+            "Description": "E2ECorrectableECC Count",
+            "Value": "0"
+          },
+          {
+            "Description": "E2EUncorrectableECC Count",
+            "Value": "0"
+          },
+          {
+            "Description": "E2ECRCGeneratiONERROR Count",
+            "Value": "0"
+          },
+          {
+            "Description": "E2ECRCCheck0Error Count",
+            "Value": "0"
+          },
+          {
+            "Description": "ReadStatusError Count",
+            "Value": "0"
+          },
+          {
+            "Description": "ReadMultipleStatusError Count",
+            "Value": "0"
+          },
+          {
+            "Description": "IDLEtime",
+            "Value": "2881441"
+          },
+          {
+            "Description": "POR Count",
+            "Value": "2325"
+          },
+          {
+            "Description": "Read Reclaim Count",
+            "Value": "16"
+          },
+          {
+            "Description": "Patrol Read Reclaim Count",
+            "Value": "1366"
+          },
+          {
+            "Description": "Fast Cycle Count",
+            "Value": "0"
+          },
+          {
+            "Description": "Deep Erase Count",
+            "Value": "0"
+          },
+          {
+            "Description": "Wear-leveling Count",
+            "Value": "16419"
+          },
+          {
+            "Description": "Erase Fail Block Count",
+            "Value": "0"
+          },
+          {
+            "Description": "Program Fail Block Count",
+            "Value": "0"
+          },
+          {
+            "Description": "Read Fail Block Count",
+            "Value": "0"
+          },
+          {
+            "Description": "Read Sector Count",
+            "Value": "22298960466"
+          },
+          {
+            "Description": "Read Command Count",
+            "Value": "1104398699"
+          },
+          {
+            "Description": "Write Sector Count",
+            "Value": "24811120792"
+          },
+          {
+            "Description": "Write Command Count",
+            "Value": "2192003650"
+          },
+          {
+            "Description": "Sequential Sector Count",
+            "Value": "17805440168"
+          },
+          {
+            "Description": "4KB Under Chunk Command Count",
+            "Value": "17"
+          },
+          {
+            "Description": "8KB Under Chunk Command Count",
+            "Value": "2414895068"
+          },
+          {
+            "Description": "16KB Under Chunk Command Count",
+            "Value": "664067352"
+          },
+          {
+            "Description": "32KB Under Chunk Command Count",
+            "Value": "151767051"
+          },
+          {
+            "Description": "64KB Under Chunk Command Count",
+            "Value": "12779488"
+          },
+          {
+            "Description": "128KB Under Chunk Command Count",
+            "Value": "39723515"
+          },
+          {
+            "Description": "256KB Under Chunk Command Count",
+            "Value": "13169858"
+          },
+          {
+            "Description": "Write Aligned Page Count",
+            "Value": "3101390099"
+          },
+          {
+            "Description": "Write Unaligned Page Count",
+            "Value": "0"
+          },
+          {
+            "Description": "Block Erase Count",
+            "Value": "303719951"
+          },
+          {
+            "Description": "Page Program Count",
+            "Value": "113780307763"
+          },
+          {
+            "Description": "Trimmed Sector Count",
+            "Value": "15516057784"
+          },
+          {
+            "Description": "Defense Code Count",
+            "Value": "1624"
+          }
+        ]
+      },
+      "Udata": {
+        "Size": 1251,
+        "data": [
+          {
+            "1": [
+              [
+                {
+                  "Description": "DSLR version",
+                  "Value": "1"
+                },
+                {
+                  "Description": "Sequence Number",
+                  "Value": "1251"
+                },
+                {
+                  "Description": "High Temperature",
+                  "Value": "46 Celsius"
+                },
+                {
+                  "Description": "Low Temperature",
+                  "Value": "27 Celsius"
+                },
+                {
+                  "Description": "POH Stamp",
+                  "Value": "82801"
+                },
+                {
+                  "Description": "E2EReadCRCError Count",
+                  "Value": "0"
+                },
+                {
+                  "Description": "E2ECRCCheck1Error Count",
+                  "Value": "0"
+                },
+                {
+                  "Description": "E2ECorrectableECC Count",
+                  "Value": "0"
+                },
+                {
+                  "Description": "E2EUncorrectableECC Count",
+                  "Value": "0"
+                },
+                {
+                  "Description": "E2ECRCGeneratiON-ERROR Count",
+                  "Value": "0"
+                },
+                {
+                  "Description": "E2ECRCCheck0Error Count",
+                  "Value": "0"
+                },
+                {
+                  "Description": "ReadStatusError Count",
+                  "Value": "0"
+                },
+                {
+                  "Description": "ReadMultipleStatusError Count",
+                  "Value": "0"
+                },
+                {
+                  "Description": "IDLE time",
+                  "Value": "3601"
+                },
+                {
+                  "Description": "POR count",
+                  "Value": "0"
+                },
+                {
+                  "Description": "Read Reclaim Count",
+                  "Value": "0"
+                },
+                {
+                  "Description": "Patrol Read Reclaim Count",
+                  "Value": "0"
+                },
+                {
+                  "Description": "Fast Cycle Count",
+                  "Value": "0"
+                },
+                {
+                  "Description": "Deep Erase Count",
+                  "Value": "0"
+                },
+                {
+                  "Description": "Wear-leveling count",
+                  "Value": "0"
+                },
+                {
+                  "Description": "Erase Fail Block Count",
+                  "Value": "0"
+                },
+                {
+                  "Description": "Program Fail Block Count",
+                  "Value": "0"
+                },
+                {
+                  "Description": "Read Fail Block Count",
+                  "Value": "0"
+                },
+                {
+                  "Description": "Read Sector Count",
+                  "Value": "0"
+                },
+                {
+                  "Description": "Read Command Count",
+                  "Value": "0"
+                },
+                {
+                  "Description": "Write Sector Count",
+                  "Value": "0"
+                },
+                {
+                  "Description": "Write Command Count",
+                  "Value": "0"
+                },
+                {
+                  "Description": "Sequential Sector Count",
+                  "Value": "0"
+                },
+                {
+                  "Description": "4KB Under Chunk Command Count",
+                  "Value": "0"
+                },
+                {
+                  "Description": "8KB Under Chunk Command Count",
+                  "Value": "0"
+                },
+                {
+                  "Description": "16KB Under Chunk Command Count",
+                  "Value": "0"
+                },
+                {
+                  "Description": "32KB Under Chunk Command Count",
+                  "Value": "0"
+                },
+                {
+                  "Description": "64KB Under Chunk Command Count",
+                  "Value": "0"
+                },
+                {
+                  "Description": "128KB Under Chunk Command Count",
+                  "Value": "0"
+                },
+                {
+                  "Description": "256KB Under Chunk Command Count",
+                  "Value": "0"
+                },
+                {
+                  "Description": "Write Aligned Page Count",
+                  "Value": "0"
+                },
+                {
+                  "Description": "Write Unaligned Page Count",
+                  "Value": "0"
+                },
+                {
+                  "Description": "Block Erase Count",
+                  "Value": "0"
+                },
+                {
+                  "Description": "Page Program Count",
+                  "Value": "0"
+                },
+                {
+                  "Description": "Trimmed Sector Count",
+                  "Value": "0"
+                },
+                {
+                  "Description": "Defense Code Count",
+                  "Value": "0"
+                }
+              ]
+            ],
+            "Size": 1
+          }
+        ]
+      },
+      "message": "Success",
+      "status": "0"
+    }
+  ]
+}

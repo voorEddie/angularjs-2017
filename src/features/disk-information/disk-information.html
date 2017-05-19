@@ -1,3 +1,10 @@
-<div>
-  DISK INFORMATION
+<div class="disk-information-inner">
+  <md-list ng-if="$ctrl.selectedSsdInfo">
+    <md-list-item
+      ng-repeat="(key, value) in $ctrl.selectedSsdInfo">
+      <div layout="row">
+        <div class="md-body-2 disk-key">{{key + ':'}}</div>
+        <div class="md-body-2 disk-value">{{value}}</div>
+      </div>
+  </md-list>
 </div>

@@ -1,0 +1,8 @@
+app-disk-information {
+  display: block;
+}
+
+.disk-information-inner .disk-key {
+  margin-right: 10px;
+  color: #777;
+}
